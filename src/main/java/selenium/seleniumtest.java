@@ -19,8 +19,9 @@ public abstract class seleniumtest {
 
     public static void main(String[] args) {
         WebDriver driver = new FirefoxDriver();
-        System.setProperty("webdriver.gecko.driver","D:\\Program Files\\Mozilla Firefox\\geckodriver.exe");
-        System.setProperty("webdriver.firefox.bin","D:\\Program Files\\Mozilla Firefox\\firefox.exe");
+//        System.setProperty("webdriver.firefox.bin","D:\\Program Files\\Mozilla Firefox\\firefox.exe");
+//        System.setProperty("webdriver.gecko.driver","D:\\Program Files\\Mozilla Firefox\\geckodriver.exe");
+
         driver.get("http://www.baidu.com");
     }
 }
