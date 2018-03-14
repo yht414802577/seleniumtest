@@ -87,8 +87,33 @@ public class PublicModle {
         }
         return flag;
     }
-
+    //根据url切换窗口
+    pubile boolean switchToWindow_Url(WebDriver driver , String windowUrl){
+        boolean flag = false;
+        try{
+            String currentHandle = driver.getWindowHandle();
+            Set<String> handle = driver.getWindowHandles();
+            for (String s:handle){
+                if (s.equals(currentHandle)){
+                    continue;
+                }else{
+                    driver.switchTo().window(s);
+                    if (driver.getCurrentUrl().contains(windowUrl)){
+                        flag = true;
+                        break;
+                    }else{
+                        continue;
+                    }
+                }
+            }
+        }catch (NegativeArraySizeException a){
+            System.out.print("Window:" + windowUrl + "cound not find!!!" + a.fillInStackTrace());
+            flag = false;
+        }
+        return flag;
     }
+
+
 
 }
 
