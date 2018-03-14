@@ -12,15 +12,16 @@ import java.util.Set;
 
 public class PublicModle {
     private static final SelLogger logger = SelLogger.getLogger(PublicModle.class);
+    //截屏方法
     public void CaptureScreenshot(String fileName, WebDriver driver){
         String dirname = "test-output/screenshot";
         if (!(new File(dirname).isDirectory())){
             new File(dirname).mkdir();
         }
-        SimpleDateFormat sdf = new SimpleDateFormat( "yy/MM/dd-HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat( "yy/MM/dd-HH:mm");   //时间格式化
         String time = sdf.format(new Date());
         TakesScreenshot ts = (TakesScreenshot)driver;
-        File image = new File(dirname + File.separator + time + "_" + fileName + ".png");
+        File image = new File(dirname + File.separator + time + "_" + fileName + ".png");    //截屏保存图片名称
         ts.getScreenshotAs(OutputType.FILE).renameTo(image);
     }
     //根据ID等待页面元素
@@ -112,8 +113,6 @@ public class PublicModle {
         }
         return flag;
     }
-
-
 
 }
 
