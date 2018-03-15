@@ -31,7 +31,16 @@ public class FileExlce {
         try{
             String fileName = "./test.xls";
             File file = new File(fileName);
-
+            Workbook wb = Workbook.getWorkbook(file);
+            Sheet sheet = wb.getSheet(0);
+            Cell cell = sheet.getCell(1 , 0);
+            String password = cell.getContents();
+            return password;
+        }catch (BiffException a){
+            a.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
         }
+        return null;
     }
 }
