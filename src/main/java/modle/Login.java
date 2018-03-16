@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.pagefactory.ElementLocator;
 import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
+import org.testng.Assert;
 
 import java.lang.reflect.Field;
 
@@ -57,6 +58,6 @@ public class Login {
     }
 
     public void check(){
-
+        Assert.assertEquals(loginResult.isDisplayed(),true);
     }
 }
