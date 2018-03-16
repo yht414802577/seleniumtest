@@ -44,7 +44,7 @@ public class PublicModle {
         }
     }
     //根据linkText等待页面元素
-    pubile void waitForDriverBylinkText(final String linkText , WebDriver driver){
+    public void waitForDriverBylinkText(final String linkText , WebDriver driver){
         try{
             WebDriverWait wait = new WebDriverWait(driver , 10);
             wait.until(new ExpectedCondition<WebElement>() {
@@ -63,7 +63,7 @@ public class PublicModle {
         }
     }
     //根据Title切换窗口
-    pubilc boolean switchToWindow_Title(WebDriver driver , String windowTitle) {
+    public boolean switchToWindow_Title(WebDriver driver , String windowTitle) {
         boolean flag = false;
         try {
             String currentHandle = driver.getWindowHandle(); //获取当前窗口
@@ -72,7 +72,7 @@ public class PublicModle {
                 if (s.equals(currentHandle)) {
                     continue;
                 }
-                sles {
+                else {
                     driver.switchTo().window(s);
                     if (driver.getTitle().contains(windowTitle)) {
                         flag = true;
@@ -89,7 +89,7 @@ public class PublicModle {
         return flag;
     }
     //根据url切换窗口
-    pubile boolean switchToWindow_Url(WebDriver driver , String windowUrl){
+    public boolean switchToWindow_Url(WebDriver driver , String windowUrl){
         boolean flag = false;
         try{
             String currentHandle = driver.getWindowHandle();
