@@ -4,14 +4,14 @@
         <groups>
             <run>
                 <include name="login" />
-                <include name="search" />
-                <exclude name="order"/>
             </run>
         </groups>
 
         <classes>
             <class name="test.login.loginTestSeit"/>
             <methods preserve-order="true">
+                <include name="setUp" />
+                <include name="taerdown" />
                 <include name="Login_phone_TestCase_01" />
             </methods>
         </classes>

@@ -18,11 +18,14 @@ public class Login {
     private WebDriver dirver;
     PublicModle p = new PublicModle();
 
-    @FindBy(how = How.ID , using = "loginname")
+    @FindBy(how = How.ID , using = "account")
     public static WebElement loginnameInputbox;
 
-    @FindBy(how = How.ID , using = "loginpwd")
+    @FindBy(how = How.NAME , using = "password")
     public static WebElement loginpwdInputbox;
+
+//    @FindBy(how = How.ID , using = "loginpwd")
+//    public static WebElement loginpwdInputbox;
 
     @FindBy(how = How.ID , using = "btn_login")
     public static WebElement loginBtn;
@@ -58,6 +61,7 @@ public class Login {
     }
 
     public void check(){
+
         Assert.assertEquals(loginResult.isDisplayed(),true);
     }
 }

@@ -43,6 +43,36 @@ public class PublicModle {
             driver.quit();
         }
     }
+    //根据css等待页面元素
+    public void waitForDriverByCss(final String CSS , WebDriver driver){
+        try {
+            WebDriverWait wait = new WebDriverWait(driver,10);
+            if(null == wait){
+                this.CaptureScreenshot(Thread.currentThread().getId() + "CSS" , driver);
+                driver.quit();
+            }
+        }catch (Exception a){
+            a.printStackTrace();
+            this.CaptureScreenshot(Thread.currentThread().getId() + "CSS" , driver);
+            driver.quit();
+        }
+    }
+
+    //根据name等待页面元素
+    public void waitForDriverByName(final String Name , WebDriver driver){
+        try {
+            WebDriverWait wait = new WebDriverWait(driver,10);
+            if(null == wait){
+                this.CaptureScreenshot(Thread.currentThread().getId() + "Name" , driver);
+                driver.quit();
+            }
+        }catch (Exception a){
+            a.printStackTrace();
+            this.CaptureScreenshot(Thread.currentThread().getId() + "Name" , driver);
+            driver.quit();
+        }
+    }
+
     //根据linkText等待页面元素
     public void waitForDriverBylinkText(final String linkText , WebDriver driver){
         try{

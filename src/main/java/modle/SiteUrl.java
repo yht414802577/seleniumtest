@@ -3,7 +3,7 @@ package modle;
 public class SiteUrl {
     private String index ;
     public String indexUrl(){
-        index = "http://fpdev.meyki.net/plat/home";
+        index = "http://127.0.0.1:55555/zentao";
         return index;
     }
 }

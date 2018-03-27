@@ -3,13 +3,14 @@ package test.login;
 import logo.SelLogger;
 import modle.*;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 
 public class loginTestSeit {
     private static final SelLogger logger = SelLogger.getLogger(loginTestSeit.class);
     private WebDriver driver;
-    private String indexUrl;
+    private String IndexUrl;
     private boolean accpetNextAlter = true;
     private StringBuffer verificatError = new StringBuffer();
     FileExlce file = new FileExlce();
@@ -45,27 +46,28 @@ public class loginTestSeit {
 //        login.check();
 //        logger.log("login end");
 //    }
-    @BeforeGroups
-    public void setUo() throws Exception{
+    @BeforeGroups(value = "bases")
+    public void setUp() throws Exception{
         driver = b.firefoxbrower();
-        indexUrl = su.indexUrl();
+        IndexUrl = su.indexUrl();
 
     }
 
-    @AfterGroups
+    @AfterGroups(value = "bases")
     public void  taerdown() throws  Exception{
         driver.quit();
         String verificationerrorString = verificatError.toString();
         if (!"".equals(verificationerrorString)){
-
-
+            Assert.fail(verificationerrorString);
         }
     }
 
     @Test(groups = {"login"})
     public void Login_phone_TestCase_01() throws Exception{
+        driver = b.firefoxbrower();
+        IndexUrl = su.indexUrl();
         logger.log("login start!!!");
-        driver.get(indexUrl);
+        driver.get(IndexUrl);
         Login login = new Login(driver);
         login.userName(file.userNaem());
         login.passWord(file.password());
